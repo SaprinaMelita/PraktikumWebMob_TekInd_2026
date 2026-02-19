@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Inspeksi Kualitas</title>
+</head>
+<body>
+    <header>
+        <h1>Laporan Inspeksi Kualitas</h1><hr>
+    </header>
+    
+    <main>
+        <section>
+            <form action="">
+                <label for="id_produk">ID Produk:</label><br>
+                <input type="text" id="id_produk" name="id_produk" placeholder="Masukkan ID Produk..." required><br><br> 
+                
+                <label for="nama_inspektur">Nama Inspektur:</label><br>
+                <input type="text" id="nama_inspektur" name="nama_inspektur" placeholder="Masukkan Nama Inspektur..." required><br><br> 
+                
+                <label for="jenis_cacat">Jenis Cacat:</label><br>
+                <input type="radio" id="geometri" name="jenis_cacat" value="Geometri" required>
+                <label for="geometri">Geometri</label><br>
+                
+                <input type="radio" id="permukaan" name="jenis_cacat" value="Permukaan">
+                <label for="permukaan">Permukaan</label><br>
+                
+                <input type="radio" id="fungsional" name="jenis_cacat" value="Fungsional">
+                <label for="fungsional">Fungsional</label><br><br>
+                
+                <label for="jumlah">Jumlah Cacat (Unit):</label><br>
+                <input type="number" id="jumlah" name="jumlah" min="0" placeholder="Masukkan Jumlah Cacat..."><br><br>
+                
+                <label for="foto_produk">Foto Produk:</label><br>
+                <input type="file" id="foto_produk" name="foto_produk" placeholder="Upload Foto Produk Dari Perangkat Anda"><br><br>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+        
+</body>
+</html>
