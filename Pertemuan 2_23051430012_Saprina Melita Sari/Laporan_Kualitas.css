@@ -39,6 +39,7 @@ label {
 input[type="text"],
 input[type="number"],
 input[type="date"],
+input[type="file"],
 select,
 textarea {
     width: 100%; /* Lebar penuh */
@@ -59,6 +60,7 @@ button {
     cursor: pointer;
     width: 100%;
     font-size: 16px;
+    margin-top: 10px; /* Supaya tombol tidak gabung */
 }
 
 button[type="submit"] {
@@ -77,11 +79,6 @@ button[type="reset"] {
 
 button[type="reset"]:hover {
     background-color: #c82333;
-}
-
-button:hover {
-    background-color: #219150;
-    /* Hijau lebih gelap saat hover */
 }
 
 #container {
