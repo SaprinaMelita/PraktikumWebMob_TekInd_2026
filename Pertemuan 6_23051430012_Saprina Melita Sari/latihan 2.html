@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Monitoring Produksi</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS tambahan -->
+    <link rel="stylesheet" href="latihan 1.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">TekInd Systems</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <!-- ROW FITUR -->
+    <div class="row">
+
+        <!-- KALKULATOR DAYA -->
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h5>Kalkulator Daya Mesin</h5>
+
+                <input type="number" id="tegangan" class="form-control mb-2" placeholder="Tegangan (Volt)">
+                <input type="number" id="arus" class="form-control mb-2" placeholder="Arus (Ampere)">
+
+                <button class="btn btn-primary" onclick="hitung()">Hitung</button>
+
+                <p class="mt-3" id="hasil">Hasil akan muncul di sini</p>
+            </div>
+        </div>
+
+        <!-- LAPORAN CACAT -->
+         <div class="col-md-4">
+            <div class="card p-3">
+                <h5>Laporan Cacat Produksi</h5>
+
+                <p>Jumlah Cacat: <span id="jumlahCacat"></span></p>
+                <ul id="listCacat" class="list-group mb-2" style="max-height: 150px; overflow-y: auto;"></ul>
+                
+                <button class="btn btn-warning" onclick="tambahData()">Tambah Cacat</button>
+            </div>
+        </div>
+
+        <!-- DATA MESIN -->
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h5>Informasi Mesin</h5>
+
+                <p id="namaMesin"></p>
+                <p id="statusMesin"></p>
+                <p id="tekananMesin"></p>
+
+                <button class="btn btn-danger" onclick="ubahStatus()">Simulasi Breakdown</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- GUDANG -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card p-3">
+                <h5>Stok Gudang Material</h5>
+                <ul id="gudangList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simulasi Panel Kontrol Mesin (Meeting 6) -->
+     <div class="card mt-4">
+        <div class="card-header bg-dark text-white">Panel Kontrol Mesin-01</div>
+        <div class="card-body text-center">
+            <!-- Indikator Status -->
+             <div id="statusIndicator" class="alert alert-secondary" role="alert">
+                Status: <strong>UNKNOWN</strong>
+            </div>
+            
+            <h2 id="suhuMesin">25 °C</h2>
+            <p>Suhu Operasional Saat Ini</p>
+            <div class="d-grid gap-2 d-md-block">
+                <button id="btnStart" class="btn btn-success btn-lg">START</button>
+                <button id="btnStop" class="btn btn-danger btn-lg">STOP</button>
+                <button id="btnReset" class="btn btn-warning btn-lg">RESET</button>
+                <button class="btn btn-secondary btn-lg" onclick="maintenanceMode()">Maintenance Mode</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-3">
+        <label>Set Target Kecepatan (RPM):</label>
+        <input type="number" id="inputRPM" class="form-control" placeholder="Max 2000 RPM">
+        <small id="pesanError" class="text-danger d-none">RPM melebihi batas aman!</small>
+    <div>
+
+</div>
+
+<script src="latihan 2.js"></script>
+
+</body>
+</html>
