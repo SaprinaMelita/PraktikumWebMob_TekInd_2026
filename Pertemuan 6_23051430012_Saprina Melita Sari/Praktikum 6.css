@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0; /* hapus padding agar Bootstrap tidak bentrok */
+}
+
+.card h5 {
+    color: #2c3e50;
+    font-weight: 700;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.list-group-item {
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+#hasil {
+    font-weight: 700;
+    color: #2980b9;
+}
+
+#hasilLuas,
+#hasilKeliling,
+#hasilCacat {
+    font-weight: 700;
+    color: #27ae60;
+}
