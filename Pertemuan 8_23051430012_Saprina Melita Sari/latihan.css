@@ -1,0 +1,375 @@
+/* ============================================================
+   style.css — Integrasi API Data Karyawan
+   Tema: Industrial Corporate | Palette: Navy + Amber Accent
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --navy:       #0d1b2a;
+  --navy-mid:   #1b2d42;
+  --navy-light: #243b55;
+  --amber:      #e8a020;
+  --amber-dim:  #c07e0e;
+  --cream:      #f5f0e8;
+  --muted:      #8a9ab0;
+  --card-bg:    #ffffff;
+  --border:     #dde3ec;
+  --radius:     10px;
+  --shadow-sm:  0 2px 8px rgba(13, 27, 42, 0.08);
+  --shadow-md:  0 6px 24px rgba(13, 27, 42, 0.13);
+  --shadow-lg:  0 12px 40px rgba(13, 27, 42, 0.18);
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Base Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(232, 160, 32, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(13, 27, 42, 0.05) 0%, transparent 50%);
+  min-height: 100vh;
+  color: var(--navy);
+}
+
+/* ── Page Header ── */
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: var(--amber);
+  border-radius: 2px;
+  margin-top: 6px;
+}
+
+/* ── Toolbar / Button Row ── */
+.mb-3.d-flex {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
+}
+
+/* ── Buttons ── */
+.btn {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 20px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary — Load */
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(13, 27, 42, 0.25);
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: var(--navy-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(13, 27, 42, 0.3);
+  color: #fff;
+}
+.btn-primary:active { transform: translateY(0); }
+
+/* Secondary — Filter */
+.btn-secondary {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy-light);
+  box-shadow: none;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.btn-secondary:active { transform: translateY(0); }
+
+/* Success — Tambah */
+.btn-success {
+  background: var(--amber);
+  color: var(--navy);
+  box-shadow: 0 2px 8px rgba(232, 160, 32, 0.3);
+}
+.btn-success:hover, .btn-success:focus {
+  background: var(--amber-dim);
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(232, 160, 32, 0.35);
+}
+.btn-success:active { transform: translateY(0); }
+
+/* ── Spinner ── */
+.spinner-border.text-primary {
+  color: var(--amber) !important;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-width: 2.5px;
+}
+
+/* ── Card Grid ── */
+#containerKaryawan {
+  margin-top: 1.5rem;
+  gap: 0;
+}
+
+/* ── Employee Card ── */
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  overflow: hidden;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--amber);
+}
+
+/* Card top accent stripe */
+.card::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--navy), var(--amber));
+  width: 0;
+  transition: width 0.4s ease;
+}
+.card:hover::before { width: 100%; }
+
+.card-body {
+  padding: 1.4rem;
+}
+
+/* Avatar placeholder */
+.card-body .avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-light), var(--amber));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+
+.card-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.card-text {
+  font-size: 0.83rem;
+  color: var(--muted);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.card-text.company {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--amber-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+/* Detail button inside card */
+.card .btn-outline-primary {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+  border-radius: 5px;
+  padding: 5px 14px;
+  transition: all var(--transition);
+  background: transparent;
+}
+.card .btn-outline-primary:hover {
+  background: var(--navy);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ── Modal — Detail Profil ── */
+#modalDetail .modal-content,
+#modalTambah .modal-content {
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+#modalDetail .modal-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: #fff;
+  padding: 1.2rem 1.5rem;
+  border-bottom: none;
+}
+
+#modalDetail .modal-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.list-group-item {
+  font-size: 0.88rem;
+  padding: 10px 0;
+  border-color: var(--border);
+  color: var(--navy);
+  background: transparent;
+}
+
+.list-group-item strong {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.list-group-item span {
+  font-weight: 500;
+  color: var(--navy);
+}
+
+#modalDetail .modal-footer {
+  border-top: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+}
+
+/* ── Modal — Tambah Karyawan ── */
+#modalTambah .modal-header {
+  background: var(--navy);
+  color: #fff;
+  border-bottom: none;
+  padding: 1.2rem 1.5rem;
+}
+
+#modalTambah .modal-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+#modalTambah .btn-close {
+  filter: invert(1);
+  opacity: 0.8;
+}
+
+#modalTambah .modal-body {
+  padding: 1.5rem;
+  background: #fafafa;
+}
+
+.form-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+
+.form-control {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  padding: 9px 13px;
+  color: var(--navy);
+  background: var(--card-bg);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-control:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(232, 160, 32, 0.18);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: #bcc5d1;
+  font-weight: 300;
+}
+
+#modalTambah .modal-footer {
+  border-top: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  background: #fafafa;
+}
+
+/* ── Card animation on load ── */
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.col-md-4 {
+  animation: cardReveal 0.4s ease both;
+  padding: 10px;
+}
+
+/* stagger delay for first 6 cards */
+.col-md-4:nth-child(1) { animation-delay: 0.05s; }
+.col-md-4:nth-child(2) { animation-delay: 0.10s; }
+.col-md-4:nth-child(3) { animation-delay: 0.15s; }
+.col-md-4:nth-child(4) { animation-delay: 0.20s; }
+.col-md-4:nth-child(5) { animation-delay: 0.25s; }
+.col-md-4:nth-child(6) { animation-delay: 0.30s; }
+
+/* ── Responsiveness ── */
+@media (max-width: 768px) {
+  h2 { font-size: 1.5rem; }
+  .mb-3.d-flex { gap: 8px !important; }
+  .btn { font-size: 0.75rem; padding: 8px 14px; }
+}
