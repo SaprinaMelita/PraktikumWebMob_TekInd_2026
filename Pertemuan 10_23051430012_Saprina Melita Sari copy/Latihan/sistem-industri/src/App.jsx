@@ -18,7 +18,7 @@ function App() {
 
       {/* Footer */}
       <footer className="text-center mb-4 text-muted">
-        Dibuat oleh Nanik Wijayanti | NIM: 23051430006
+        Dibuat oleh Saprina Melita Sari | NIM: 23051430012
       </footer>
 
       {/* ================= KARTU MESIN ================= */}

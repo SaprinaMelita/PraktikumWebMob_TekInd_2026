@@ -1,0 +1,55 @@
+/* ROOT */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+/* BODY */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f7fa;
+}
+
+/* NAVBAR */
+.navbar-brand {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* CARD */
+.card {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* HOVER EFFECT */
+.hover-card {
+  transition: transform 0.2s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+}
+
+/* OEE RESULT */
+.oee-low {
+  color: red;
+}
+
+.oee-high {
+  color: green;
+}
+
+/* OEE CONTAINER */
+.oee-container {
+  max-width: 700px;
+  margin: auto;
+}
+
+/* FOOTER */
+footer {
+  font-size: 14px;
+}
