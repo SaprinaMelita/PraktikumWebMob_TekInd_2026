@@ -1,0 +1,22 @@
+src/
+├── Komponen/
+│   ├── Sidebar.jsx      ← Navigasi kiri (NavLink aktif otomatis)
+│   ├── Topbar.jsx       ← Header + jam real-time (useEffect)
+│   └── KartuStat.jsx    ← Kartu statistik reusable (Props)
+├── Halaman/
+│   ├── Dashboard.jsx    ← Statistik + log hari ini
+│   ├── InputLaporan.jsx ← Form lengkap + kalkulasi real-time
+│   ├── RiwayatData.jsx  ← Tabel + filter + sortir
+│   ├── JadwalShift.jsx  ← Jadwal operator minggu ini
+│   └── NotFound.jsx     ← Halaman 404
+├── utils/
+│   └── storage.js       ← CRUD LocalStorage (simpan, ambil, hapus)
+
+![alt text](image.png)
+
+# Ganti nama folder sesuai NIM & nama Anda dulu, lalu:
+npm install
+npm run dev
+# Buka http://localhost:5173
+
+Sebelum dikumpulkan: ganti [Isi Nama Lengkap] dan [Isi NIM] di README.md, dan rename ZIP sesuai format: UTS_Web_12320001_AhmadDhani.zip.
